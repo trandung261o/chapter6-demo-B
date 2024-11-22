@@ -1,3 +1,13 @@
+### udemy-ui-not-hiding-when-using-full-screen
+
+- Video hướng dẫn chi tiết: <a href="https://youtu.be/5FvB6RWJQaE" target="_blank">https://youtu.be/5FvB6RWJQaE</a>
+
+- Credit: <a href="https://github.com/indramal/Udemy-Clean-Window/tree/main?tab=readme-ov-file" target="_blank">https://github.com/indramal/Udemy-Clean-Window/tree/main?tab=readme-ov-file</a>
+
+
+
+
+
 <div align="center">
 
 <picture>
