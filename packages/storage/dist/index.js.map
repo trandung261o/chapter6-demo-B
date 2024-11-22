@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../index.ts"],
+  "sourcesContent": ["export * from './lib';\r\n"],
+  "mappings": ";AAAA,cAAc;",
+  "names": []
+}

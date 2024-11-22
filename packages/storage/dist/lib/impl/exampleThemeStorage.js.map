@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../lib/impl/exampleThemeStorage.ts"],
+  "sourcesContent": ["import { StorageEnum } from '../base/enums';\r\nimport { createStorage } from '../base/base';\r\nimport type { BaseStorage } from '../base/types';\r\n\r\ntype Theme = 'light' | 'dark';\r\n\r\ntype ThemeStorage = BaseStorage<Theme> & {\r\n  toggle: () => Promise<void>;\r\n};\r\n\r\nconst storage = createStorage<Theme>('theme-storage-key', 'light', {\r\n  storageEnum: StorageEnum.Local,\r\n  liveUpdate: true,\r\n});\r\n\r\n// You can extend it with your own methods\r\nexport const exampleThemeStorage: ThemeStorage = {\r\n  ...storage,\r\n  toggle: async () => {\r\n    await storage.set(currentTheme => {\r\n      return currentTheme === 'light' ? 'dark' : 'light';\r\n    });\r\n  },\r\n};\r\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA,SAAS,mBAAmB;AAC5B,SAAS,qBAAqB;AAS9B,MAAM,UAAU,cAAqB,qBAAqB,SAAS;AAAA,EACjE,aAAa,YAAY;AAAA,EACzB,YAAY;AACd,CAAC;AAGM,aAAM,sBAAoC,iCAC5C,UAD4C;AAAA,EAE/C,QAAQ,MAAY;AAClB,UAAM,QAAQ,IAAI,kBAAgB;AAChC,aAAO,iBAAiB,UAAU,SAAS;AAAA,IAC7C,CAAC;AAAA,EACH;AACF;",
+  "names": []
+}

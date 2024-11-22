@@ -1,0 +1,7 @@
+{
+  "version": 3,
+  "sources": ["../../../lib/hoc/withSuspense.tsx"],
+  "sourcesContent": ["import type { ComponentType, ReactElement } from 'react';\r\nimport { Suspense } from 'react';\r\n\r\nexport function withSuspense<T extends Record<string, unknown>>(\r\n  Component: ComponentType<T>,\r\n  SuspenseComponent: ReactElement,\r\n) {\r\n  return function WithSuspense(props: T) {\r\n    return (\r\n      <Suspense fallback={SuspenseComponent}>\r\n        <Component {...props} />\r\n      </Suspense>\r\n    );\r\n  };\r\n}\r\n"],
+  "mappings": ";;;;;;;;;;;;;;;;;AAUQ;AATR,SAAS,gBAAgB;AAElB,gBAAS,aACd,WACA,mBACA;AACA,SAAO,SAAS,aAAa,OAAU;AACrC,WACE,oBAAC,YAAS,UAAU,mBAClB,8BAAC,8BAAc,MAAO,GACxB;AAAA,EAEJ;AACF;",
+  "names": []
+}
