@@ -2,7 +2,9 @@
 
 - Video hướng dẫn chi tiết: <a href="https://youtu.be/5FvB6RWJQaE" target="_blank">https://youtu.be/5FvB6RWJQaE</a>
 
-- Credit: <a href="https://github.com/indramal/Udemy-Clean-Window/tree/main?tab=readme-ov-file" target="_blank">https://github.com/indramal/Udemy-Clean-Window/tree/main?tab=readme-ov-file</a>
+- Credit version 2 (master): <a href="https://github.com/Equiel-1703/udemy-video-fix" target="_blank">https://github.com/Equiel-1703/udemy-video-fix</a>
+
+- Credit version 1: <a href="https://github.com/indramal/Udemy-Clean-Window/tree/main?tab=readme-ov-file" target="_blank">https://github.com/indramal/Udemy-Clean-Window/tree/main?tab=readme-ov-file</a>
 
 
 
