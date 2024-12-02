@@ -1,36 +1,13 @@
-import { createRoot } from 'react-dom/client';
-import App from '@src/App';
-import tailwindcssOutput from '../dist/tailwind-output.css?inline';
-
-const root = document.createElement('div');
-root.id = 'chrome-extension-boilerplate-react-vite-content-view-root';
-
-document.body.append(root);
-
-const rootIntoShadow = document.createElement('div');
-rootIntoShadow.id = 'shadow-root';
-
-const shadowRoot = root.attachShadow({ mode: 'open' });
-
-if (navigator.userAgent.includes('Firefox')) {
-  /**
-   * In the firefox environment, adoptedStyleSheets cannot be used due to the bug
-   * @url https://bugzilla.mozilla.org/show_bug.cgi?id=1770592
-   *
-   * Injecting styles into the document, this may cause style conflicts with the host page
-   */
-  const styleElement = document.createElement('style');
-  styleElement.innerHTML = tailwindcssOutput;
-  shadowRoot.appendChild(styleElement);
-} else {
-  /** Inject styles into shadow dom */
-  const globalStyleSheet = new CSSStyleSheet();
-  globalStyleSheet.replaceSync(tailwindcssOutput);
-  shadowRoot.adoptedStyleSheets = [globalStyleSheet];
-}
-
-shadowRoot.appendChild(rootIntoShadow);
-createRoot(rootIntoShadow).render(<App />);
+// ==UserScript==
+// @name         Udemy Fix Video Controls
+// @namespace    https://github.com/Equiel-1703
+// @version      1.2
+// @description  Fix stupid idiot video controls of Udemy not disappearing.
+// @author       Henrique Rodrigues Barraz
+// @license 	 GPL-3.0
+// @match        https://www.udemy.com/course/*
+// @icon         https://www.udemy.com/staticx/udemy/images/v7/apple-touch-icon.png
+// ==/UserScript==
 
 (function () {
   'use strict';
@@ -38,12 +15,12 @@ createRoot(rootIntoShadow).render(<App />);
   console.log('>>> udemy-video-fix.user is running...');
 
   // Function to add CSS code to the page
-  const addCSS = function (cssText: any) {
+  const addCSS = function (cssText) {
     let newStyleSection = document.createElement('style');
 
     newStyleSection.textContent = cssText;
 
-    document?.querySelector('head')?.appendChild(newStyleSection);
+    document.querySelector('head').appendChild(newStyleSection);
   };
 
   // New CSS classes
@@ -56,32 +33,32 @@ createRoot(rootIntoShadow).render(<App />);
 
   // New CSS code to be added
   const newCSS = `
-.animate-opacity {
-  transition-duration: 0.7s;
-  transition-property: opacity;
-}
+	.animate-opacity {
+		transition-duration: 0.7s;
+		transition-property: opacity;
+	}
 
-.animate-bottom {
-  transition-duration: 0.5s;
-  transition-property: bottom;
-}
+	.animate-bottom {
+		transition-duration: 0.5s;
+		transition-property: bottom;
+	}
 
-.hide-UI {
-  opacity: 0%;
-}
+	.hide-UI {
+		opacity: 0%;
+	}
 
-.unhide-UI {
-  opacity: 100%;
-}
+	.unhide-UI {
+		opacity: 100%;
+	}
 
-.hide-mouse {
-  cursor: none;
-}
+	.hide-mouse {
+		cursor: none;
+	}
 
-.no-bottom-space {
-  bottom: 0rem;
-}
-`;
+	.no-bottom-space {
+		bottom: 0rem;
+	}
+	`;
 
   // Add this new CSS to the <head> of the page
   addCSS(newCSS);
@@ -185,7 +162,7 @@ createRoot(rootIntoShadow).render(<App />);
     };
 
     // Helper function. Returns true if the cursor is inside 'elementRec'.
-    const cursorIsInsideElement = (elementRec: any) => {
+    const cursorIsInsideElement = elementRec => {
       if (
         cursorPosition.x >= elementRec.left &&
         cursorPosition.x <= elementRec.right &&
@@ -201,7 +178,7 @@ createRoot(rootIntoShadow).render(<App />);
     const conditionalHideUIElements = () => {
       let canHideCursor = true;
 
-      for (const vUI of videoUIElements as any) {
+      for (const vUI of videoUIElements) {
         let vUIRec = vUI.getBoundingClientRect();
 
         if (cursorIsInsideElement(vUIRec)) {
@@ -219,7 +196,7 @@ createRoot(rootIntoShadow).render(<App />);
 
     // Timeout settings
     const timeoutDelayMS = 4_000; // 4 sec to controls hide after no mouse movement
-    let timeoutID: any = null;
+    let timeoutID = null;
 
     const resetMouseTimeout = () => {
       // Clear previous timeout (if any)

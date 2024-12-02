@@ -9,11 +9,11 @@ export default function App() {
   useEffect(() => {
     console.log('content ui loaded');
     // Run the functions when the DOM is fully loaded
-    window.addEventListener('load', function () {
-      addToggleButton();
-    });
+    // window.addEventListener('load', function () {
+    //   addToggleButton();
+    // });
 
-    return () => window.removeEventListener('load', addToggleButton);
+    // return () => window.removeEventListener('load', addToggleButton);
   }, []);
 
   // Function to add toggle button
